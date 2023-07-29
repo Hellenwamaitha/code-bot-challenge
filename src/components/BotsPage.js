@@ -1,50 +1,74 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import YourBotArmy from "./YourBotArmy";
 import BotCollection from "./BotCollection";
 
-const API = "https://github.com/Hellenwamaitha/bot-api/blob/main/users%20bot";
+const API = "https://raw.githubusercontent.com/Hellenwamaitha/bot-api/main/users%20bot";
 
 function BotsPage() {
-  //start here with your code for step one
 
   const [bots, setBots] = useState([]);
-  
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   useEffect(() => {
     fetch(API)
-    .then(res => res.json())
-    // .then(json => console.log(json))
-    .then(setBots)
-  },[])
+        .then(res => {
+            if (!res.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return res.json();
+        })
+        .then(data => {
+            setBots(data.bots);  // You should set the 'bots' key from the data
+            setLoading(false);
+        })
+        .catch(error => {
+            console.error('There was an error fetching the data:', error);
+            setLoading(false);
+            setError(error.message);
+        });
+}, []);
 
-  function enlistBot(bot){
-    console.log(bot);
-    setBots(bots.map(b => b.id === bot.id ? {...b, army:true} : b));
+
+  const enlistBot = bot => {
+    setBots(prevBots => 
+      prevBots.map(b => b.id === bot.id ? {...b, army: true} : b)
+    );
   }
 
-  function removeBot(bot){
-    console.log(bot);
-    setBots(bots.map(b => b.id === bot.id ? {...b, army:false} : b));
+  const removeBot = bot => {
+    setBots(prevBots => 
+      prevBots.map(b => b.id === bot.id ? {...b, army: false} : b)
+    );
   }
 
-  function deleteBot(bot){
-    // console.log("You're fired.")
-    setBots(bots.filter(b => b.id !== bot.id))
+  const deleteBot = bot => {
+    setBots(prevBots => 
+      prevBots.filter(b => b.id !== bot.id)
+    );
   }
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error}</p>;
+
+  const botArmyProps = {
+    bots: bots.filter(b => b.army),
+    removeBot,
+    deleteBot
+  };
+
+  const botCollectionProps = {
+    bots,
+    enlistBot,
+    deleteBot
+  };
+
   return (
     <div>
-      <YourBotArmy 
-      bots={bots.filter(b => b.army)}
-      removeBot ={removeBot}
-      deleteBot={deleteBot}
-      />
-
-      <BotCollection 
-      bots={bots}
-      enlistBot={enlistBot}
-      deleteBot={deleteBot}
-      />
+      <YourBotArmy {...botArmyProps} />
+      <BotCollection {...botCollectionProps} />
     </div>
-  )
+  );
 }
 
 export default BotsPage;
