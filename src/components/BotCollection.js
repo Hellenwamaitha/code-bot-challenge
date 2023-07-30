@@ -12,14 +12,24 @@ function BotCollection({bots, enlistBot, deleteBot}) {
     deleteBot={deleteBot}
     />)
 
-  return (
-    <div className="ui four column grid">
-      <div className="row">
-        {mapBots}
-        Collection of all bots
+    return (
+      <div className="container bot-army">
+        <div className="row">
+          {mapBots.map((bot, index) => (
+            <div key={index} className="col-md-3 bot-column">
+              {bot}
+            </div>
+          ))}
+        </div>
+        <div className="row">
+          <div className="col-12 text-center">
+            Collection of all bots
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
+    
+    
 }
 
 export default BotCollection;
