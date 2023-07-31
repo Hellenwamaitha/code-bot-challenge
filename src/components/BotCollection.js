@@ -1,35 +1,39 @@
 import React from "react";
-import BotCard from "./BotCard"
+import BotCard from "./BotCard";
+import YourBotArmy from './YourBotArmy';
 
-function BotCollection({bots, enlistBot, deleteBot}) {
-  // Your code here
+function BotCollection({ bots, enlistBot, deleteBot }) {
 
-  const mapBots = bots.map(bot => 
-    <BotCard 
-    key={bot.id}
-    bot={bot}
-    clickEvent={enlistBot}
-    deleteBot={deleteBot}
-    />)
+  const mapBots = bots.map(bot => (
+    <div key={bot.id} className="col-md">
+      <BotCard 
+        bot={bot}
+        clickEvent={enlistBot}
+        deleteBot={deleteBot}
+      />
+    </div>
+  ));
 
-    return (
-      <div className="container bot-army">
-        <div className="row">
-          {mapBots.map((bot, index) => (
-            <div key={index} className="col-md-3 bot-column">
-              {bot}
-            </div>
-          ))}
-        </div>
-        <div className="row">
-          <div className="col-12 text-center">
-            Collection of all bots
-          </div>
+  return (
+    <div className="container bot-army">
+      {/* Display YourBotArmy */}
+      <div className="row your-bot-army-row">
+        <YourBotArmy bots={bots} removeBot={enlistBot} deleteBot={deleteBot} />
+      </div>
+      
+      {/* Display all bots (mapBots) */}
+      <div className="row">
+        {mapBots}
+      </div>
+      
+      <div className="row">
+        <div className="col-12 text-center">
+          Collection of all bots
         </div>
       </div>
-    );
-    
-    
+    </div>
+  );
 }
 
 export default BotCollection;
+

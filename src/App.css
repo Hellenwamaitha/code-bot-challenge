@@ -8,20 +8,23 @@ body {
 
 /* Styling for Individual Bot */
 .bot-column {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid #ccc;  /* A border to differentiate bots */
   padding: 10px;
-  margin: 5px;  /* A little space between bots */
+  margin: 5px 0;  /* A little vertical space between bots, no horizontal margin as Bootstrap handles this */
   box-sizing: border-box;
+  text-align: center; /* if you want to center the content of each bot */
 }
 
 /* Styling for the bot-army container */
 .bot-army {
   padding-top: 20px;
   padding-bottom: 20px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  background-color: aquamarine;
+}
+
+/* Styling for centered text within rows */
+.text-center {
+  text-align: center;
 }
 
 
