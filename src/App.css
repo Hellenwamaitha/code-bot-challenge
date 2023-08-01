@@ -8,7 +8,7 @@ body {
 
 /* Styling for Individual Bot */
 .bot-column {
-  border: 1px solid #ccc;  /* A border to differentiate bots */
+  border: 0.5px solid #ccc;  /* A border to differentiate bots */
   padding: 10px;
   margin: 5px 0;  /* A little vertical space between bots, no horizontal margin as Bootstrap handles this */
   box-sizing: border-box;
@@ -19,7 +19,7 @@ body {
 .bot-army {
   padding-top: 20px;
   padding-bottom: 20px;
-  background-color: aquamarine;
+  background-color: black;
 }
 
 /* Styling for centered text within rows */

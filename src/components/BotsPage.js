@@ -82,6 +82,8 @@ function BotsPage() {
 
   return (
     <div>
+      <h1>BOTS DISPLAY</h1>
+      
       {/* Render the SortBar component */}
       <SortBar onChange={handleSortChange} />
 
