@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/code-bot-challenge/static/css/main.4b6504fe.css",
+    "main.js": "/code-bot-challenge/static/js/main.a13b7997.js",
+    "static/js/787.45ebc857.chunk.js": "/code-bot-challenge/static/js/787.45ebc857.chunk.js",
+    "index.html": "/code-bot-challenge/index.html",
+    "main.4b6504fe.css.map": "/code-bot-challenge/static/css/main.4b6504fe.css.map",
+    "main.a13b7997.js.map": "/code-bot-challenge/static/js/main.a13b7997.js.map",
+    "787.45ebc857.chunk.js.map": "/code-bot-challenge/static/js/787.45ebc857.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4b6504fe.css",
+    "static/js/main.a13b7997.js"
+  ]
+}
