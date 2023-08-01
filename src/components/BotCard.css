@@ -1,0 +1,27 @@
+BotCard.css
+
+/* Add styles for each bot class */
+.Assault {
+    background-color: #ff6666; /* Replace with your desired color for Assault bots */
+  }
+  
+  .Defender {
+    background-color: #66b2ff; /* Replace with your desired color for Defender bots */
+  }
+  
+  .Support {
+    background-color: #99ff99; /* Replace with your desired color for Support bots */
+  }
+  
+  .Medic {
+    background-color: #ffff99; /* Replace with your desired color for Medic bots */
+  }
+  
+  .Witch {
+    background-color: #cc99ff; /* Replace with your desired color for Witch bots */
+  }
+  
+  .Captain {
+    background-color: #ffcc99; /* Replace with your desired color for Captain bots */
+  }
+  
